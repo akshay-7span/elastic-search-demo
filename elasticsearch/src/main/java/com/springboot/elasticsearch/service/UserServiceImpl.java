@@ -61,4 +61,19 @@ public class UserServiceImpl implements UserService{
 
         return null;
     }
+
+    @Override
+    public String update(UserRequest userRequest) {
+
+        Optional<UserEntity> userEntityOptional = userRepository.findById(userRequest.getId());
+
+        if (userEntityOptional.isPresent()){
+            UserEntity userEntity = userMapper.userRequestToUserEntity(userRequest);
+            userRepository.save(userEntity);
+            return "User updated Successfully.";
+        }
+        return "There is no such user.";
+    }
+
+
 }

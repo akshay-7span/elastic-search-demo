@@ -29,4 +29,9 @@ public class UserController {
     public UserResponse getById(@PathVariable Long id){
         return userService.getById(id);
     }
+
+    @PutMapping
+    public String update(@RequestBody UserRequest userRequest){
+        return userService.update(userRequest);
+    }
 }

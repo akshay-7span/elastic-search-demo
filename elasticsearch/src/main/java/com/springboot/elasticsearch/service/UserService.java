@@ -11,4 +11,6 @@ public interface UserService {
     List<UserResponse> getAll();
 
     UserResponse getById(Long id);
+
+    String update(UserRequest userRequest);
 }
