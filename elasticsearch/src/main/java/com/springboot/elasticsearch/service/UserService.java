@@ -1,4 +1,7 @@
 package com.springboot.elasticsearch.service;
 
-public class UserService {
+import com.springboot.elasticsearch.request.UserRequest;
+
+public interface UserService {
+    String create(UserRequest userRequest);
 }
