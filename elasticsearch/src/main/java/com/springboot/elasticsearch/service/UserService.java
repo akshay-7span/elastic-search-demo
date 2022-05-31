@@ -13,4 +13,6 @@ public interface UserService {
     UserResponse getById(Long id);
 
     String update(UserRequest userRequest);
+
+    String deleteById(Long id);
 }

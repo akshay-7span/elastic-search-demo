@@ -70,7 +70,16 @@ public class UserServiceImpl implements UserService{
         if (userEntityOptional.isPresent()){
             UserEntity userEntity = userMapper.userRequestToUserEntity(userRequest);
             userRepository.save(userEntity);
-            return "User updated Successfully.";
+            return "User updated successfully.";
+        }
+        return "There is no such user.";
+    }
+
+    @Override
+    public String deleteById(Long id) {
+        if (userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            return "User deleted successfully.";
         }
         return "There is no such user.";
     }
