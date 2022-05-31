@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -32,5 +33,32 @@ public class UserServiceImpl implements UserService{
         }
 
         return "Something went wrong while saving user.";
+    }
+
+    @Override
+    public List<UserResponse> getAll() {
+
+        Iterator<UserEntity> userEntityIterator = userRepository.findAll().iterator();
+        List<UserResponse> userResponseList = new ArrayList<>();
+        UserResponse userResponse = null;
+
+        while (userEntityIterator.hasNext()) {
+            userResponse = userMapper.userEntityToUserResponse(userEntityIterator.next());
+            userResponseList.add(userResponse);
+        }
+
+        return userResponseList;
+    }
+
+    @Override
+    public UserResponse getById(Long id){
+        Optional<UserEntity> userEntityOptional = userRepository.findById(id);
+
+        if (userEntityOptional.isPresent()){
+            UserResponse userResponse = userMapper.userEntityToUserResponse(userEntityOptional.get());
+            return userResponse;
+        }
+
+        return null;
     }
 }
