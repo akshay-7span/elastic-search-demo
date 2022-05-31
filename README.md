@@ -1,6 +1,6 @@
-# elastic-search-demo
+# Spring Data Elasticsearch
 
-Versions:
+Version:
 
 	Java			1.8
 	Spring Boot		2.7.0
@@ -30,7 +30,6 @@ Choose compatible versions of ElastiSearch and Spring boot using the below-given
 
 - This branch is all about "CRUD operations"
 
-
 - #### Create(User)
 
 	- **The scenario is** : When the type of id field is Long then it doesn't generate id automatically but if the type is String then it generates id automatically.
@@ -47,4 +46,4 @@ Choose compatible versions of ElastiSearch and Spring boot using the below-given
 
 		What you can do is, generate your own id and set it in your document, then spring data ES will set the String value of that field in its internal _id field. And you will see your document id field contains the value you set.
 
-		(Source: https://stackoverflow.com/questions/45431574/not-auto-generating-id-for-long-type-but-for-string-type-field-in-spring-data-el)
+		Source: https://stackoverflow.com/questions/45431574/not-auto-generating-id-for-long-type-but-for-string-type-field-in-spring-data-el
